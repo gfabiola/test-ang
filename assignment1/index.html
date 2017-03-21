@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+	<script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+	  .disclaimer{font-size: .8em;}
+	  input.empty-food{border: 1px solid red;}
+	  input.too-much-food, input.enjoy-food{border: 1px solid green;}
+	  div.message.empty-food{color: red;}
+	  div.message.too-much-food, div.message.enjoy-food{color: green;}
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text" ng-model="food"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control {{result}}-food" />
+         </div>
+		 <div class="form-group disclaimer">
+			An empty item is a valid one. For example 'item 1, item2,,item3' or  'item 1, item2, ,item3' are 4 items in the list.
+		 </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkFood()">Check If Too Much</button>
+         </div>
+         <div class="form-group message {{result}}-food">
+           {{message}}
+         </div>
+   </div>
+
+</body>
+</html>

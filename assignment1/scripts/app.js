@@ -4,8 +4,8 @@
 angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 
-LunchCheckController.$inject = ['$scope', '$filter'];
-function LunchCheckController($scope, $filter) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
 	$scope.food = "";
 	$scope.result = "";
 	$scope.message = "";
@@ -31,7 +31,9 @@ function LunchCheckController($scope, $filter) {
 		if(typeof foodString !== "string" || foodString === ""){
 			return [];
 		}
-		return foodString.split(",");
+		return foodString.split(",").filter(function(element){
+			return element.trim().length > 0;
+		});
 	}
   
 }

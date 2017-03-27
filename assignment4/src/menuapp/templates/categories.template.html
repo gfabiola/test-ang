@@ -1,6 +1,12 @@
 <breadcrumb></breadcrumb>
-<ul>
-  <li ng-repeat="item in categories.items">
-    <a ui-sref="items({categoryShortName: item.short_name})">{{ item.name }}</a>
-  </li>
-</ul>
+
+<div class="col col-md-8 col-xs-12 col-md-push-4">
+	<ui-view></ui-view>
+</div>
+<div class="col col-md-4 col-md-pull-8">
+	<ul>
+	  <li ng-repeat="category in $ctrl.categories">
+		<a ui-sref="categories.items({categoryShortName: category.short_name})">{{ category.name }}</a>
+	  </li>
+	</ul>
+</div>

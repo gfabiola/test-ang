@@ -38,7 +38,7 @@ function MenuDataService($http, $q, ApiBasePath) {
 	  return $http({
 			  method: "GET",
 			  url: (ApiBasePath + "/menu_items.json"),
-			  data: {
+			  params: {
 				  category: categoryShortName
 			  }
 			});

@@ -3,12 +3,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     <title>MenuApp</title>
   </head>
-  <body ng-app='MenuApp'>
+  <body ng-app='MenuApp'  class="container">
     <h1>MenuApp</h1>
-
-    <ui-view></ui-view>
+	<div class="row">
+		<ui-view></ui-view>
+	</div>
+    
 
     <!-- Libraries -->
     <script src="lib/angular.min.js"></script>

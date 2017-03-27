@@ -23,17 +23,17 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/menuapp/templates/categories.template.html',
-    controller: 'CategoriesController as categories',
+    controller: 'CategoriesController as $ctrl',
     resolve: {
-      items: ['MenuDataService', function (MenuDataService) {
+      categories: ['MenuDataService', function (MenuDataService) {
 		  return MenuDataService.getAllCategories();
       }]
     }
   })
-  .state('items', {
+  .state('categories.items', {
     url: '/items/{categoryShortName}',
     templateUrl: 'src/menuapp/templates/items.template.html',
-    controller: 'ItemsController as items',
+    controller: 'ItemsController  as $ctrl',
     resolve: {
       items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
 		  return MenuDataService.getItemsForCategory($stateParams.categoryShortName);

@@ -1,0 +1,10 @@
+<breadcrumb></breadcrumb>
+<h2>{{items.category.name}}</h2>
+<div>
+	{{items.category.special_instructions}}
+</div>
+<ul>
+  <li ng-repeat="item in items.items">
+    {{ item.name }}
+  </li>
+</ul>

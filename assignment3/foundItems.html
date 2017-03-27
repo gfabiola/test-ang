@@ -1,6 +1,12 @@
-<ul>
-	<li ng-repeat="item in items">
-		<span>{{item.name}}</span>
-		<button class="btn" ng-click="onRemove({index : $index})">Don't want this one!</button>
-	</li>
-</ul>
+<div ng-show="items.length === 0">
+	Nothing found
+</div>
+
+<table>
+	<tr ng-repeat="item in items">		
+		<td>{{item.short_name}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td><button class="btn" ng-click="onRemove({index : $index})">Don't want this one!</button></td>
+	</tr>
+</table>

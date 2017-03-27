@@ -22,10 +22,17 @@ function NarrowItDownController (MenuSearchService) {
 	var narrowItDown = this;
 	narrowItDown.searchTerm = "";
 	narrowItDown.found = [];
+	narrowItDown.searchDone = false;
 	
-	narrowItDown.narrowIt = function(){
+	narrowItDown.narrowIt = function(){		
+		if(!narrowItDown.searchTerm || narrowItDown.searchTerm == ""){
+			narrowItDown.found = [];
+			narrowItDown.searchDone = true;
+			return;
+		}
 		MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm).then(function(result){
 			narrowItDown.found = result;
+			narrowItDown.searchDone = true;
 		});
 	};
 	
@@ -51,17 +58,13 @@ function MenuSearchService($q, $http, ApiBasePath){
 	};
 	
 	service.getMatchedMenuItems = function(searchTerm){
-		searchTerm = searchTerm || "";
-		var deferred = $q.defer();
-		service.getMenuItems().then(function(result){
+		return service.getMenuItems().then(function(result){
 			var menuItems = (result && result.data && result.data.menu_items) ? result.data.menu_items : [];
 			var filteredItems = menuItems.filter(function(element){
 				return element.name && element.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
 			});
-			deferred.resolve(filteredItems);
+			return filteredItems;
 		});
-		
-		return deferred.promise;
 	};
 }
 

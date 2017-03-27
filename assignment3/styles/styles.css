@@ -14,7 +14,7 @@ input[type="text"] {
   clear:both;
 }
 
-.result-section li {
+.result-section td {
 	padding: 5px 2px;
 }
 .loader {

@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">My Info</h2>
+  <div class="text-center"></div>
+  <div class="text-center" ng-if="myInfoCtrl.user === null">
+	<div>Not Signed Up Yet. </div>
+	<div>
+		<a ui-sref="public.signup">Sign up Now!</a>
+	</div>
+  </div>
+  <div class="text-center" ng-if="myInfoCtrl.user !== null">
+	<user-info user="myInfoCtrl.user" preference="myInfoCtrl.preference"></user-info>
+  </div>
+</div>

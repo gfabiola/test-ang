@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>First Name:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	{{$ctrl.user.firstName}}
+  </div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Last Name:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	{{$ctrl.user.lastName}}
+  </div>
+  <div class="col-xs-12 form-space"></div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Email:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	{{$ctrl.user.email}}
+  </div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Phone:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	{{$ctrl.user.phoneNumber}}
+  </div>
+  <div class="col-xs-12 form-space"></div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Preference:</label>
+  </div>
+  <div class="col-md-6 col-xs-6 text-left">
+	<menu-item
+             menu-item="$ctrl.preference">
+	</menu-item>
+  </div>
+</div>

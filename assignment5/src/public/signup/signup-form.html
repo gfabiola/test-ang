@@ -1,0 +1,92 @@
+<form name='signInForm' novalidate>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>First Name:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	<input name="firstName" type="text"
+			ng-model="$ctrl.user.firstName"
+			ng-pattern="/^[a-zA-Z\s]*$/"
+			required />
+	<div class="error-text"
+		ng-if="signInForm.firstName.$error.required && signInForm.firstName.$touched">		
+            First name is required
+    </div>
+	<div class="error-text"
+		ng-if="signInForm.firstName.$error.pattern && signInForm.firstName.$touched">		
+            Please enter only alpha characters
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Last Name:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	<input name="lastName" type="text"
+			ng-model="$ctrl.user.lastName"
+			ng-pattern="/^[a-zA-Z\s]*$/"
+			required/>	
+	<div class="error-text"
+		ng-if="signInForm.lastName.$error.required && signInForm.lastName.$touched">		
+            First name is required
+    </div>
+	<div class="error-text"
+		ng-if="signInForm.lastName.$error.pattern && signInForm.lastName.$touched">		
+            Please enter only alpha characters
+    </div>
+  </div>
+  
+  <div class="col-xs-12 form-space"></div>
+  
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>E-mail:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	<input name="email" type="email"
+			ng-model="$ctrl.user.email"
+			required/>
+	<div class="error-text" ng-if="signInForm.email.$invalid && signInForm.email.$touched">
+        Must be a valid email address: handle@domain format
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Phone number:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	<input name="phoneNumber" type="text" placeholder="Phone ###-###-####"
+			pattern="(\d{3})-(\d{3})-(\d{4})"
+			ng-model="$ctrl.user.phoneNumber"
+			required/>
+	<div class="error-text" ng-if="signInForm.phoneNumber.$invalid && signInForm.phoneNumber.$touched">
+        Phone must be in the format ###-###-####.
+    </div>
+  </div>
+  
+  <div class="col-xs-12 form-space"></div>
+  
+  <div class="col-md-3 col-xs-6 text-right">
+	<label>Preference:</label>
+  </div>
+  <div class="col-md-3 col-xs-6 text-left">
+	<input name="preference" type="text"
+			ng-model="$ctrl.user.preference"
+			required
+			preference-validation />
+	<div class="error-text" ng-if="signInForm.preference.$invalid && signInForm.preference.$touched">
+        Invalid preference
+    </div>
+  </div>
+  
+  <div class="col-xs-12 form-space"></div>
+  
+  <div class="col-xs-12 text-center">
+	<button class="sign-in" ng-disabled="signInForm.$invalid" ng-click="$ctrl.register()">Sign In</button>
+  </div>
+  
+  <div class="col-xs-12 form-space"></div>
+  
+  <div class="col-xs-12 text-center" ng-if="$ctrl.saved">
+	<div>Your information has been saved.</div>
+	<div>
+		<a ui-sref="public.myinfo">View My Info</a>
+	</div>
+  </div>
+</form>
